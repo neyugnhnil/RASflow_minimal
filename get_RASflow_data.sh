@@ -1,7 +1,10 @@
 # depends: wget, csvkit, sratoolkit
 
-module load wget
-module load csvkit
+module load miniconda3/4.7.12
+module load sratoolkit/3.0.2
+
+pip install csvkit
+
 
 # METAFILE ######################################################
 
