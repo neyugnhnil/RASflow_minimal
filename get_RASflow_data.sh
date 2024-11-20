@@ -6,9 +6,9 @@ mkdir data logs input
 
 wget -O configs/metadata.sdrf.txt https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/567/E-MTAB-567/Files/E-MTAB-567.sdrf.txt
 
-csvcut -t -c "Comment[ENA_RUN],FactorValue [sampling site],Characteristics[individual]" configs/metadata.sdrf.txt > configs/less_metadata.sdrf.txt
-
 echo -e "sample\tgroup\tsubject" > ./configs/metafile.tsv
+
+csvcut -t -c "Comment[ENA_RUN],FactorValue [sampling site],Characteristics[individual]" configs/metadata.sdrf.txt > configs/less_metadata.sdrf.txt
 
 tail -n +2 configs/less_metadata.sdrf.txt | sort | uniq | sed 's/,/\t/g' - | cat - >> ./configs/metafile.tsv
 
@@ -28,6 +28,7 @@ cut ./configs/test_metafile.tsv | tail -n +2  | cat > ./configs/test_run_list.tx
 while read accession; do
     prefetch -O ./data/raw ${accession}
     fasterq-dump --split-files ./data/raw/${accession} -O ./data/raw/fastq_raws
+    rm ./data/raw ${accession}
 done < ./configs/test_run_list.txt
 
 # REFERENCE ######################################################

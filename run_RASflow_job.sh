@@ -19,7 +19,12 @@ source activate RASflow
 
 pip install csvkit
 
+module load R/3.5.1
+module load python/3.7.0
 module load sratoolkit/3.0.2
+module load samtools/1.9
+module load fastqc/0.11.8
+module load salmon/1.0.0
 
 cd $HOME/RASflow_minimal
 
