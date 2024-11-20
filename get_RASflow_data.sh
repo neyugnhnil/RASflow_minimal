@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir data logs input
+
 # METAFILE ######################################################
 
 wget -O configs/metadata.sdrf.txt https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/567/E-MTAB-567/Files/E-MTAB-567.sdrf.txt
@@ -20,13 +22,13 @@ mkdir -p ./data/raw/fastq_raws
 
 ## run list
 cut -f1 ./configs/metafile.tsv | tail -n +2  | cat > ./configs/run_list.txt
-cut -f1 ./configs/test_metafile.tsv | tail -n +2  | cat > ./configs/test_run_list.txt
+cut ./configs/test_metafile.tsv | tail -n +2  | cat > ./configs/test_run_list.txt
 
 ## get reads
 while read accession; do
     prefetch -O ./data/raw ${accession}
     fasterq-dump --split-files ./data/raw/${accession} -O ./data/raw/fastq_raws
-done < ./configs/run_list.txt
+done < ./configs/test_run_list.txt
 
 # REFERENCE ######################################################
 
