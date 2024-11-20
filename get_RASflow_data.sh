@@ -1,3 +1,5 @@
+# depends: wget, csvkit, sratoolkit
+
 # METAFILE ######################################################
 
 wget -O configs/metadata.sdrf.txt https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/567/E-MTAB-567/Files/E-MTAB-567.sdrf.txt
