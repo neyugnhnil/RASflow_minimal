@@ -25,6 +25,7 @@ module load sratoolkit/3.0.2
 module load samtools/1.9
 module load fastqc/0.11.8
 module load salmon/1.0.0
+module load trimgalore/0.6.4
 
 cd $HOME/RASflow_minimal
 

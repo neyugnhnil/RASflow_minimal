@@ -1,0 +1,26 @@
+name: rasflow
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.6
+  - snakemake
+  - graphviz
+  - r-base=3.5
+  - r-yaml
+  - r-statmod
+  - r-gplots
+  - r-heatmap.plus
+  - r-readr
+  - r-hash
+  - multiqc
+  - hisat2
+  - subread
+  - htseq
+  - bioconductor-edger
+  - bioconductor-deseq2
+  - bioconductor-tximport
+  - bioconductor-enhancedvolcano
+  - qualimap
+
