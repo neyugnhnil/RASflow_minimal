@@ -26,8 +26,8 @@ mkdir -p ./data/raw/
 mkdir ./data/raw/fastq_raws
 
 ## run list
-cut -f1 ./configs/metafile.tsv | tail +2  | cat > ./configs/run_list.txt
-cut -f1 ./configs/test_metafile.tsv | tail +2  | cat > ./configs/test_run_list.txt
+cut -f1 ./configs/metafile.tsv | tail -n +2  | cat > ./configs/run_list.txt
+cut -f1 ./configs/test_metafile.tsv | tail -n +2  | cat > ./configs/test_run_list.txt
 
 ## get reads
 while read accession; do
