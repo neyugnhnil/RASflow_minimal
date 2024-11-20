@@ -1,10 +1,12 @@
-# depends: wget, csvkit, sratoolkit
+#!/bin/bash
 
 module load miniconda3/4.7.12
+
+source activate
+
 module load sratoolkit/3.0.2
 
 pip install csvkit
-
 
 # METAFILE ######################################################
 
@@ -22,8 +24,7 @@ grep -E "ERR031031|ERR031032" ./configs/metafile.tsv > ./configs/test_metafile.t
 
 # READSPATH ######################################################
 
-mkdir -p ./data/raw/
-mkdir ./data/raw/fastq_raws
+mkdir -p ./data/raw/fastq_raws
 
 ## run list
 cut -f1 ./configs/metafile.tsv | tail -n +2  | cat > ./configs/run_list.txt
