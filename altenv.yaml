@@ -7,7 +7,7 @@ dependencies:
   - python=3.6
   - snakemake
   - graphviz
-  - R/3.5
+  - R=3.5
   - r-yaml
   - r-statmod
   - r-gplots
