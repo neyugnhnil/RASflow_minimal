@@ -1,13 +1,5 @@
 #!/bin/bash
 
-module load miniconda3/4.7.12
-
-source activate
-
-module load sratoolkit/3.0.2
-
-pip install csvkit
-
 # METAFILE ######################################################
 
 wget -O configs/metadata.sdrf.txt https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/567/E-MTAB-567/Files/E-MTAB-567.sdrf.txt
@@ -34,7 +26,7 @@ cut -f1 ./configs/test_metafile.tsv | tail -n +2  | cat > ./configs/test_run_lis
 while read accession; do
     prefetch -O ./data/raw ${accession}
     fasterq-dump --split-files ./data/raw/${accession} -O ./data/raw/fastq_raws
-done < ./configs/raw/run_list.txt
+done < ./configs/run_list.txt
 
 # REFERENCE ######################################################
 

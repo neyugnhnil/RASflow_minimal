@@ -3,8 +3,8 @@
 #SBATCH -N 1
 #SBATCH -c 8
 #SBATCH --time=12:00:00
-#SBATCH -partition=courses
-#SBATCH --mem=48G
+#SBATCH --partition=courses
+#SBATCH --mem=108G
 
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=nguyen.ngocli@northeastern.edu
@@ -13,14 +13,14 @@
 
 # setup environment
 
-module load miniconda3/4.7.12
+module load miniconda3/23.11.0
 
-source activate rasflow
+source activate RASflow
 
 pip install csvkit
 
 module load sratoolkit/3.0.2
 
-cd /scratch/nguyen.ngocli
+cd $HOME/RASflow_minimal
 
-bash get_rasflow_data.sh
+bash get_RASflow_data.sh
