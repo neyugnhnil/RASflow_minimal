@@ -23,14 +23,14 @@ mkdir -p ./data/raw/
 mkdir ./data/raw/fastq_raws
 
 ## run list
-cut -f1 ./configs/metafile.tsv | tail +2  | cat > run_list.txt
-cut -f1 ./configs/test_metafile.tsv | tail +2  | cat > test_run_list.txt
+cut -f1 ./configs/metafile.tsv | tail +2  | cat > ./configs/run_list.txt
+cut -f1 ./configs/test_metafile.tsv | tail +2  | cat > ./configs/test_run_list.txt
 
 ## get reads
 while read accession; do
     prefetch -O ./data/raw ${accession}
     fasterq-dump --split-files ./data/raw/${accession} -O ./data/raw/fastq_raws
-done < ./data/raw/run_list.txt
+done < ./configs/raw/run_list.txt
 
 # REFERENCE ######################################################
 
