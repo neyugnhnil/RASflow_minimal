@@ -17,7 +17,7 @@ cd $HOME/RASflow_minimal
 
 module load miniconda3/23.11.0
 
-bash RASflow_environment.sh
+source activate RASflow
 
 # get data
 
