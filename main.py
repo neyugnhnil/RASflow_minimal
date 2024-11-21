@@ -5,7 +5,7 @@ import os
 import time
 
 with open('configs/config_main.yaml') as yamlfile:
-    config = yaml.load(yamlfile)
+    config = yaml.load(yamlfile, Loader=yaml.FullLoader)
 
 # Parameters to control the workflow
 project = config["PROJECT"]
@@ -32,7 +32,7 @@ print("Is visualization required?\n", visualize)
 
 # Double check with the user about the requested sub-workflows to be run
 print("Please double check the information above\nDo you want to continue? (y/n)")
-check_flow = input()
+check_flow = "y"
 if check_flow == "y":
     pass
 else:
@@ -58,7 +58,7 @@ def spend_time(start_time, end_time):
 if qc:
     # Double check that the user really wants to do QC instead of forgetting to change the param after doing QC
     print("Are you sure that you want to do Quality Control?\n If yes, type 'y'; if not, type 'n' and set 'QC' to 'no' in the config file")
-    qc_2nd = input()
+    qc_2nd = "y"
     if qc_2nd == "y":
         print("Start Quality Control!")
         start_time = time.time()

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir data logs input
+mkdir data logs input output
 
 # METAFILE ######################################################
 
@@ -29,6 +29,8 @@ cut -f1 ./configs/test_metafile.tsv | cat > ./configs/test_run_list.txt
 while read accession; do
     prefetch -O ./data/raw ${accession}
     fasterq-dump --split-files ./data/raw/${accession} -O ./data/raw/fastq_raws
+    gzip ./data/raw/fastq_raws/${accession}_1.fastq
+    gzip ./data/raw/fastq_raws/${accession}_2.fastq
     rm -r ./data/raw/${accession}
 done < ./configs/test_run_list.txt
 

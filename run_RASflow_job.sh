@@ -26,3 +26,7 @@ module load sratoolkit/3.0.2
 pip install csvkit
 
 bash get_RASflow_data.sh
+
+# RASflow
+
+python main.py
