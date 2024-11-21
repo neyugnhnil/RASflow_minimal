@@ -13,17 +13,16 @@
 
 # setup environment
 
+cd $HOME/RASflow_minimal
+
 module load miniconda3/23.11.0
 
-source activate RASflow
+bash RASflow_environment.sh
 
-# for getting data
+# get data
+
 module load sratoolkit/3.0.2
 
 pip install csvkit
-
-# run
-
-cd $HOME/RASflow_minimal
 
 bash get_RASflow_data.sh

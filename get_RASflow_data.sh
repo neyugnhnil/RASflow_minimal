@@ -25,21 +25,22 @@ cut -f1 ./configs/metafile.tsv | tail -n +2  | cat > ./configs/run_list.txt
 cut ./configs/test_metafile.tsv | tail -n +2  | cat > ./configs/test_run_list.txt
 
 ## get reads
+RUNLIST = ./configs/test_run_list.txt
+
 while read accession; do
     prefetch -O ./data/raw ${accession}
     fasterq-dump --split-files ./data/raw/${accession} -O ./data/raw/fastq_raws
     rm ./data/raw ${accession}
-done < ./configs/test_run_list.txt
+done < $RUNLIST
 
 # REFERENCE ######################################################
 
 mkdir -p ./data/genome
-wget -O data/genome/chr_Y.fa.gz ftp://ftp.ensembl.org/pub/release-113/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.chromosome.Y.fa.gz
+
+## human genome
+wget -O data/genome/GRCh38.fa.gz wget ftp://ftp.ensembl.org/pub/release-113/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
+gunzip data/genome/GRCh38.fa.gz
+
+## annotations
 wget -O data/genome/annotations.gtf.gz ftp://ftp.ensembl.org/pub/release-113/gtf/homo_sapiens/Homo_sapiens.GRCh38.113.gtf.gz
-
 gunzip data/genome/annotations.gtf.gz
-gunzip data/genome/chr_Y.fa.gz
-
-## test-only! ##
-
-grep -P '^Y\t' data/genome/annotations.gtf > data/genome/Y_annotations.gtf
