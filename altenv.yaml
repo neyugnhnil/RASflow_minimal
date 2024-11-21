@@ -1,13 +1,13 @@
-name: rasflow
+name: RASflow
 channels:
   - conda-forge
   - bioconda
   - defaults
 dependencies:
-  - python=3.6
+  #- python=3.6
   - snakemake
   - graphviz
-  - R=3.5
+  #- R=3.5
   - r-yaml
   - r-statmod
   - r-gplots
@@ -23,9 +23,6 @@ dependencies:
   - bioconductor-tximport
   - bioconductor-enhancedvolcano
   - qualimap
-  - sratoolkit
-  - salmon
-  - trimgalore
-  - fastqc=0.11.8
-  - samtools=1.9
+variables:
+  PATH: /shared/centos7/modulefiles:$PATH
 
