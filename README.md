@@ -1,5 +1,13 @@
 # RASflow_minimal
 
+## Running
+
+Make sure to get up RASflow environment using `conda create -n RASflow -f env.yaml` and configure config_main.yaml before sending job (`sbatch run_RASflow_job.sh`).
+
+By default this does genome alignment and DEA for subject 3 (ERR031031 normal tissue, ERR031032 tumor tissue). To change subject, edit get_RASflow_data.sh. Currently the sub-metafile representing what subject is being used is called "test_metafile".
+
+## Info
+
 How this repo was generated:
 
 ```bash
@@ -26,8 +34,6 @@ workflow/*.rules
 EOF
 
 git checkout master
-
-mkdir data logs input
 
 cp ../get_RASflow_data.sh .
 ```
