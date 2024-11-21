@@ -2,7 +2,7 @@
 #SBATCH --job-name=RASflow_test
 #SBATCH -N 1
 #SBATCH -c 8
-#SBATCH --t = 12:00:00
+#SBATCH --time 12:00:00
 #SBATCH --partition=courses
 #SBATCH --mem=108G
 
