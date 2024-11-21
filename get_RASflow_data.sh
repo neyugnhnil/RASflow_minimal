@@ -14,7 +14,7 @@ tail -n +2 configs/less_metadata.sdrf.txt | sort | uniq | sed 's/,/\t/g' - | cat
 
 ## test ##
 
-grep -E "ERR031031|ERR031032" ./configs/metafile.tsv > ./configs/test_metafile.tsv
+grep -E "sample|ERR031031|ERR031032" ./configs/metafile.tsv > ./configs/test_metafile.tsv
 
 # READSPATH ######################################################
 
