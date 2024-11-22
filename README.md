@@ -1,5 +1,7 @@
 # RASflow_minimal
 
+This is a clone of https://github.com/zhxiaokang/RASflow, used for testing / a group project.
+
 ## Running
 
 Make sure to get up RASflow environment using `conda create -n RASflow -f env.yaml` and configure config_main.yaml before sending job (`sbatch run_RASflow_job.sh`).
